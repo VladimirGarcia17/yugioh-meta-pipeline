@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: dim_cards
+    description: "Card dimension. One row per card with its descriptive attributes."
+    columns:
+      - name: card_id
+        description: "Unique card identifier (primary key)."
+        tests:
+          - unique
+          - not_null
+      - name: card_name
+        description: "Card name, with wrapping quotes normalized."
+        tests:
+          - not_null
+
+  - name: fct_banlist
+    description: "Historical fact of each card's banlist status per snapshot date."
+    columns:
+      - name: card_id
+        description: "Card the row applies to. References dim_cards."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_cards')
+              field: card_id
+      - name: status_tcg
+        description: "TCG banlist status. Unlimited when the card is not restricted."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Unlimited', 'Limited', 'Semi-Limited', 'Forbidden']
+
+  - name: fct_card_prices
+    description: "Historical fact of card prices per snapshot date."
+    columns:
+      - name: card_id
+        description: "Card the row applies to. References dim_cards."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_cards')
+              field: card_id

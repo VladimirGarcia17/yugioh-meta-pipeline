@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw data extracted from YGOPRODeck API"
+    schema: raw
+    tables:
+      - name: cards_raw
+        description: "One row per card per extraction. `card_data` is the raw JSON; `extracted_at` seals the snapshot"
+        columns:
+          - name: id
+            description: "Auto-generated Primary Key of the load row"
+          - name: card_data
+            description: "Raw JSON (JSONB) of the letter as returned by the API"
+          - name: extracted_at
+            description: "Snapshot timestamp"
