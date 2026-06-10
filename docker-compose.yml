@@ -14,6 +14,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - yugioh_network
 
 volumes:
   postgres_data:
+
+networks:
+  yugioh_network:
+    external: true

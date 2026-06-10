@@ -6,3 +6,4 @@ dbt/**/target/
 dbt/**/dbt_packages/
 dbt/**/logs/
 airflow/logs/
+airflow/config/
