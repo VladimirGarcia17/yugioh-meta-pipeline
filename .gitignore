@@ -5,5 +5,7 @@ __pycache__/
 dbt/**/target/
 dbt/**/dbt_packages/
 dbt/**/logs/
+dbt/yugioh/profiles.yml
+dbt/yugioh/.user.yml
 airflow/logs/
 airflow/config/
