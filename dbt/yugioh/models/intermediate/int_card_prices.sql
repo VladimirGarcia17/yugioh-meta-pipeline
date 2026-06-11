@@ -9,11 +9,11 @@ with source as (
 unpacked as (
     select
         card_id,
-        (prices ->> 'tcgplayer_price')::numeric(10,2) as tcgplayer_price,
-        (prices ->> 'cardmarket_price')::numeric(10,2) as cardmarket_price,
-        (prices ->> 'ebay_price')::numeric(10,2) as ebay_price,
-        (prices ->> 'amazon_price')::numeric(10,2) as amazon_price,
-        (prices ->> 'coolstuffinc_price')::numeric(10,2) as coolstuffinc_price,
+        nullif((prices ->> 'tcgplayer_price')::numeric(10,2), 999.99) as tcgplayer_price,
+        nullif((prices ->> 'cardmarket_price')::numeric(10,2), 999.99) as cardmarket_price,
+        nullif((prices ->> 'ebay_price')::numeric(10,2), 999.99) as ebay_price,
+        nullif((prices ->> 'amazon_price')::numeric(10,2), 999.99) as amazon_price,
+        nullif((prices ->> 'coolstuffinc_price')::numeric(10,2), 999.99) as coolstuffinc_price,
         extracted_at::date as price_date
     from source
 )
