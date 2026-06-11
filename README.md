@@ -169,4 +169,4 @@ Open `dashboard/yugioh-dashboard.pbix` in Power BI Desktop. It connects to Postg
 
 ## Author
 
-**Vladimir** — [GitHub: VladimirGarcia17](https://github.com/VladimirGarcia17)
+**Vladimir Garcia** — [GitHub: VladimirGarcia17](https://github.com/VladimirGarcia17)
