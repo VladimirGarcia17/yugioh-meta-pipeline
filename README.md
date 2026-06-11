@@ -2,7 +2,7 @@
 
 An end-to-end ELT data pipeline that ingests the full Yu-Gi-Oh! card catalog from the YGOPRODeck API, models it into a dimensional star schema with dbt, orchestrates the workflow with Apache Airflow, and surfaces meta and market insights through a Power BI dashboard.
 
-![Dashboard](docs/dashboard.png)
+![Dashboard](docs/ygo-dashboard.png)
 
 ---
 
